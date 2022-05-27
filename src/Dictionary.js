@@ -1,15 +1,21 @@
+import axios from "axios";
 import React, { useState } from "react";
 import "./Dictionary.css";
 function Dictionary() {
   let [searchWord, setSearchWord] = useState("");
   function handleSubmit(event) {
     event.preventDefault();
-    alert(`searching for ${searchWord}`);
+    let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${searchWord}`;
+    axios.get(apiUrl).then(handleResponse);
   }
 
   function updateSearchWord(event) {
     setSearchWord(event.target.value);
   }
+  function handleResponse(response) {
+    console.log(response.data[0]);
+  }
+
   return (
     <div className="Dictionary">
       <h1>Dictionary</h1>
@@ -24,7 +30,7 @@ function Dictionary() {
             onChange={updateSearchWord}
           />
           <button className="btn">
-            <i class="fa-solid fa-magnifying-glass"></i>
+            <i className="fa-solid fa-magnifying-glass"></i>
           </button>
         </div>
       </form>
