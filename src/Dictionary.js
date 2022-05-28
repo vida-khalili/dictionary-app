@@ -1,8 +1,11 @@
 import axios from "axios";
 import React, { useState } from "react";
 import "./Dictionary.css";
+import Results from "./Results";
+
 function Dictionary() {
   let [searchWord, setSearchWord] = useState("");
+  let [definition, setDefinition] = useState({});
   function handleSubmit(event) {
     event.preventDefault();
     let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${searchWord}`;
@@ -14,6 +17,7 @@ function Dictionary() {
   }
   function handleResponse(response) {
     console.log(response.data[0]);
+    setDefinition(response.data[0]);
   }
 
   return (
@@ -34,6 +38,7 @@ function Dictionary() {
           </button>
         </div>
       </form>
+      <Results definition={definition} />
     </div>
   );
 }
