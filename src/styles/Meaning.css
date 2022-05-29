@@ -2,7 +2,7 @@
     background-color: white;
     border-radius: 10px;
     padding: 20px;
-    margin: 5px auto;
+    margin-top: 5px;
 }
 .Meaning h3,p{
     text-align: left;
@@ -15,6 +15,6 @@
     width: fit-content;
 }
 
-.example { color: #5b5b5b;
-    font-size: 14px;
+.Meaning p {
+    margin: 10px 0 0 0
 }
