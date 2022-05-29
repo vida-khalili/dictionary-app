@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Result from "./Result";
+import "../sytles/Dictionary.css"
 
 export default function Dictionary(props) {
   const [keyword, setKeyword] = useState("Hello");
@@ -34,19 +35,19 @@ export default function Dictionary(props) {
   if (loaded) {
     return (
       <div className="Dictionary">
-        <section>
-          <form onSubmit={handleSubmit}>
-            <label>What word do you want to look up?</label>
+        <h1>Dictionary</h1>
+        <h3>What word do you want to look up?</h3>
+          <form onSubmit={handleSubmit} className="search-engine">
             <input
               type="search"
               placeholder="Search for a word"
               defaultValue={props.defaultKeyword}
               autoFocus={true}
-              className="form-control search-input"
+              className="form-control"
               onChange={handleKeywordChange}
             />
+            <button className="btn btn-primary"><i className="fa-solid fa-magnifying-glass" /></button>
           </form>
-        </section>
         <Result definition={definition} />
       </div>
   );

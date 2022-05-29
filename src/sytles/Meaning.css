@@ -1,0 +1,14 @@
+.Meaning h3,p{
+    text-align: left;
+}
+
+.Meaning h3{
+    margin-top: 10px;
+    font-weight: 400;
+    background-color: #ced4da;
+    width: fit-content;
+}
+
+.example { color: #5b5b5b;
+    font-size: 14px;
+}

@@ -1,5 +1,5 @@
 import React from "react";
-
+import "../sytles/Meaning.css"
 export default function Meaning(props) {
   if (props.meaning) {
     return (
@@ -9,7 +9,7 @@ export default function Meaning(props) {
           return (
             <div key={index}>
               <p>{definition.definition}</p>
-              <em>{definition.example}</em>
+              <p className="example"> {definition.example}</p>
             </div>
           );
         })}
