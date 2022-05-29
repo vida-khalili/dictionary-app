@@ -5,7 +5,9 @@ export default function Result(props) {
   if (props.definition) {
     return (
       <div className="Result">
-          <h2 >{props.definition.word}</h2>
+        <div className="searched-word">
+          <h2>{props.definition.word}</h2>
+        </div>
         {props.definition.meanings.map(function (meaning, index) {
           return (
             <section key={index}>

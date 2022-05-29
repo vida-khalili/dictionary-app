@@ -1,3 +1,9 @@
+.Meaning {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 5px auto;
+}
 .Meaning h3,p{
     text-align: left;
 }

@@ -36,7 +36,9 @@ export default function Dictionary(props) {
     return (
       <div className="Dictionary">
         <h1>Dictionary</h1>
-        <h3>What word do you want to look up?</h3>
+        <div className="search-card">
+          <h3>What word do you want to look up?
+        </h3>
           <form onSubmit={handleSubmit} className="search-engine">
             <input
               type="search"
@@ -48,6 +50,7 @@ export default function Dictionary(props) {
             />
             <button className="btn btn-primary"><i className="fa-solid fa-magnifying-glass" /></button>
           </form>
+        </div>
         <Result definition={definition} />
       </div>
   );

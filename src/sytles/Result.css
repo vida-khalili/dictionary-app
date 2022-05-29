@@ -1,3 +1,9 @@
 .Result {
-    margin-top: 50px;
+    margin-top: 20px;
+}
+
+.searched-word {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
 }

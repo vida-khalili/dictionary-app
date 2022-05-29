@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   font-family: 'Josefin Sans', sans-serif;
-}
+  max-width: 800px;
 
+}
 
