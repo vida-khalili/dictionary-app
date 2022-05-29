@@ -1,46 +1,59 @@
-import axios from "axios";
 import React, { useState } from "react";
-import "./Dictionary.css";
-import Results from "./Results";
+import axios from "axios";
+import Result from "./Result";
 
-function Dictionary() {
-  let [searchWord, setSearchWord] = useState("");
-  let [definition, setDefinition] = useState({});
-  function handleSubmit(event) {
-    event.preventDefault();
-    let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${searchWord}`;
-    axios.get(apiUrl).then(handleResponse);
-  }
+export default function Dictionary(props) {
+  const [keyword, setKeyword] = useState("Hello");
+  const [loaded, setLoaded] = useState(false);
+  const [definition, setDefinition] = useState(null);
 
-  function updateSearchWord(event) {
-    setSearchWord(event.target.value);
-  }
+
   function handleResponse(response) {
-    console.log(response.data[0]);
     setDefinition(response.data[0]);
   }
 
-  return (
-    <div className="Dictionary">
-      <h1>Dictionary</h1>
-      <h3>What word do you want to look up?</h3>
-      <form onSubmit={handleSubmit}>
-        <div className="search-engine d-flex">
-          <input
-            type="search"
-            placeholder="Enter a word"
-            autoComplete="off"
-            className="form-control"
-            onChange={updateSearchWord}
-          />
-          <button className="btn">
-            <i className="fa-solid fa-magnifying-glass"></i>
-          </button>
-        </div>
-      </form>
-      <Results definition={definition} />
-    </div>
-  );
-}
+  function load() {
+    setLoaded(true);
+    search();
+  }
 
-export default Dictionary;
+  function search() {
+    let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en_US/${keyword}`;
+    axios.get(apiUrl).then(handleResponse);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    search();
+  }
+
+  function handleKeywordChange(event) {
+    setKeyword(event.target.value);
+  }
+
+  if (loaded) {
+    return (
+      <div className="Dictionary">
+        <section>
+          <form onSubmit={handleSubmit}>
+            <label>What word do you want to look up?</label>
+            <input
+              type="search"
+              placeholder="Search for a word"
+              defaultValue={props.defaultKeyword}
+              autoFocus={true}
+              className="form-control search-input"
+              onChange={handleKeywordChange}
+            />
+          </form>
+        </section>
+        <Result definition={definition} />
+      </div>
+  );
+      
+  } else {
+    load();
+    return "Loading!"
+  }
+
+}

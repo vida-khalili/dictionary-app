@@ -1,6 +1,6 @@
 import React from "react";
 
-function Meaning(props) {
+export default function Meaning(props) {
   if (props.meaning) {
     return (
       <div className="Meaning">
@@ -19,5 +19,3 @@ function Meaning(props) {
     return null;
   }
 }
-
-export default Meaning;
