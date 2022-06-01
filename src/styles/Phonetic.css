@@ -1,0 +1,18 @@
+.Phonetic {
+  justify-content: left;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  margin: 5px 0;
+}
+
+.phonetic-text {
+  margin-left: 5px;
+  font-size: 16px;
+}
+
+.Phonetic a {
+  width: 62px;
+  padding: 5px;
+  text-align: center;
+}
